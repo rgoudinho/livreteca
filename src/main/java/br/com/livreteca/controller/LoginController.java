@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.livreteca.model.dao.BookDAO;
 import br.com.livreteca.util.Constants;
 import br.com.livreteca.util.Routes;
 
@@ -40,11 +41,11 @@ public class LoginController extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
+		
 		try {
 			req.login(username, password);
 			HttpSession session = req.getSession();
 			session.setAttribute("username", req.getUserPrincipal().getName());
-			
 			if(req.isUserInRole(Constants.ADMIN)) {
 				String address = "a";
 				resp.sendRedirect(address);

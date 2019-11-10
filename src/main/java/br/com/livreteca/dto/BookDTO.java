@@ -1,27 +1,15 @@
-package br.com.livreteca.model.entity;
+package br.com.livreteca.dto;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "books")
-public class Book {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BookDTO {
 	private long id;
-
 	private String name;
 	private String writer;
 	private int amount;
 
-	public Book() {
-	}
-	
-	public Book(Long id) {
-		this.id = id;
+	public BookDTO() {
 	}
 
-	public Book(String name, String writer, int amount) {
+	public BookDTO(String name, String writer, int amount) {
 		this.name = name;
 		this.writer = writer;
 		this.amount = amount;
@@ -49,10 +37,6 @@ public class Book {
 
 	public void setAmount(int amount) {
 		this.amount = amount;
-	}
-
-	public long getId() {
-		return id;
 	}
 
 }

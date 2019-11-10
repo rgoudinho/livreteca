@@ -11,9 +11,6 @@ import br.com.livreteca.util.JPAUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by ronifabio on 01/05/2019.
- */
 public class UserService extends AbstractService<String, User> {
 
     public UserService() {
@@ -61,12 +58,6 @@ public class UserService extends AbstractService<String, User> {
         return isSuccess;
     }
 
-    /**
-     * Valida o parâmetro id usado em edições e remoções
-     *
-     * @param id
-     * @return
-     */
     public List<ValidationError> paramValidation(String id) {
         List<ValidationError> errors = new ArrayList<>();
 
@@ -81,12 +72,6 @@ public class UserService extends AbstractService<String, User> {
         return (errors.isEmpty() ? null : errors);
     }
 
-    /**
-     * Valida os campos do formulário de dados pessoais.
-     *
-     * @param userDTO
-     * @return
-     */
     public List<ValidationError> formValidation(UserDTO userDTO) {
         List<ValidationError> errors = new ArrayList<>();
 

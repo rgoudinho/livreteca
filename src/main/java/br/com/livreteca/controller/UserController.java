@@ -23,7 +23,7 @@ import br.com.livreteca.service.UserService;
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet(urlPatterns = { "/usuarios/cadastrar", "/a/usuarios/remover", "/a/usuarios/listar" })
+@WebServlet(urlPatterns = { "/usuarios/cadastrar"})
 public class UserController extends HttpServlet {
 
 	 UserService userService = new UserService();
@@ -49,17 +49,14 @@ public class UserController extends HttpServlet {
 		boolean hasError = errors != null;
 
 		if (hasError) {
-			// reapresenta o formulário com os erros de validação
 			sendError(req, resp, errors);
 			return;
 		}
 
 		if (req.getServletPath().contains(Routes.CREATE)) {
-			// persiste o usuário
 			boolean isSuccess = persist(req, resp, userDTO);
 
 			if (!isSuccess) {
-				// reapresenta o formulário com a mensagem de erro
 				String address = "/WEB-INF/view/user/register.jsp";
 
 				errors = new ArrayList<>();

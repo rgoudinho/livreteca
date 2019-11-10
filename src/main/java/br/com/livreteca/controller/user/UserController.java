@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.livreteca.model.dao.BookDAO;
+
 /**
  * Servlet implementation class UserController
  */
@@ -15,6 +17,8 @@ public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		BookDAO bookDAO = new BookDAO();;
+		request.setAttribute("books", bookDAO.findAll());
 		String address = "/WEB-INF/view/user/index.jsp";
 		request.getRequestDispatcher(address).forward(request, response);
 	}

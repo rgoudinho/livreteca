@@ -1,11 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>br.com.livreteca</groupId>
-  <artifactId>livreteca</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
-  <name>bmi-calculator</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.livreteca</groupId>
+	<artifactId>livreteca</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>bmi-calculator</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,6 +21,14 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.4.2.Final</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-impl -->
+<!-- <dependency>
+    <groupId>com.sun.faces</groupId>
+    <artifactId>jsf-impl</artifactId>
+    <version>2.2.18</version>
+</dependency>
+	 -->	
 
 		<!-- MySQL -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -57,6 +67,13 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
+		<!-- <dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.18</version>
+		</dependency>  -->
+
 	</dependencies>
 
 	<build>

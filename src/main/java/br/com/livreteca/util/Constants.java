@@ -10,6 +10,6 @@ public class Constants {
 	public static final String USER = "user";
 
 	//Nome do persistence unit
-	public static final String PERSISTENCE_UNIT = "bmi-calculator";
+	public static final String PERSISTENCE_UNIT = "livreteca";
 
 }
