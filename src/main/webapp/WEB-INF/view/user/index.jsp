@@ -15,7 +15,7 @@
      					<br>
         				Quantidade: ${book.getAmount()}
   					</p>	
-  				<a href="u/emprestar" class="waves-effect waves-light btn">Editar</a>
+  				<a href="u/emprestar?id=<c:out value='${book.getId()}'/>" class="waves-effect waves-light btn">Emprestar</a>
 			</c:forEach>
 		</ul>
 	</jsp:body>

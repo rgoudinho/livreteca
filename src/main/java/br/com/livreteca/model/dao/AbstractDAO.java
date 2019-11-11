@@ -35,12 +35,13 @@ public class AbstractDAO<PK, T> {
 	 * @param propertyValue valor do atributo
 	 * @return
 	 */
-	public T getByProperty(String propertyName, String propertyValue){
+	public T getByProperty(String propertyName, Long propertyValue){
 		this.entityManager = JPAUtil.getEntityManager();
 		
 		String queryString = "SELECT o FROM " + getTypeClass().getName() + " o where o." + propertyName + " = :param";		
 		
 		Query query = entityManager.createQuery(queryString);		
+		System.out.println("SELECT o FROM " + getTypeClass().getName() + " o where o." + propertyName + " = "+propertyValue);
 		query.setParameter("param", propertyValue);
 		
 	    List<T> queryResult = query.getResultList();

@@ -36,11 +36,11 @@ public class BookItem {
 		return id;
 	}
 
-	public boolean getAmount() {
+	public boolean getBorrowed() {
 		return borrowed;
 	}
 
-	public void setAmount(boolean borrowed) {
+	public void setBorrowed(boolean borrowed) {
 		this.borrowed = borrowed;
 	}
 }

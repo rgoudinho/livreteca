@@ -11,6 +11,22 @@ public class BookDAO extends AbstractDAO<String, Book> {
 	public BookDAO() {
 		entityManager = JPAUtil.getEntityManager();
 	}
+	
+    public boolean saveBook(Book book){
+        boolean isSuccess = true;
+        try {
+            JPAUtil.beginTransaction();
+            save(book);
+            JPAUtil.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            isSuccess = false;
+            JPAUtil.rollBack();
+        } finally {
+            JPAUtil.closeEntityManager();
+        }
+        return isSuccess;
+    }
 
 	public void remove(Book book) {
 		try {

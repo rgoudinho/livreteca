@@ -30,7 +30,7 @@ public class AbstractService<PK, T> {
         return entity;
     }
 
-    public T getByProperty(String propertyName, String propertyValue) {
+    public T getByProperty(String propertyName, Long propertyValue) {
         T entity = null;
         entity = dao.getByProperty(propertyName, propertyValue);
         return entity;

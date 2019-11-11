@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.livreteca.dto.BookDTO;
 import br.com.livreteca.error.ValidationError;
 import br.com.livreteca.model.dao.BookDAO;
+import br.com.livreteca.model.dao.BookItemDAO;
 import br.com.livreteca.model.entity.Book;
+import br.com.livreteca.model.entity.BookItem;
 import br.com.livreteca.model.mapper.BookMapper;
 import br.com.livreteca.service.BookService;
 import br.com.livreteca.util.Routes;
@@ -113,7 +115,7 @@ public class BookController extends HttpServlet {
 		}
 		
 		if (request.getServletPath().contains(Routes.ADD)) {
-			boolean isSuccess = persist(request, response, bookDTO);
+			boolean isSuccess = persist(bookDTO);
 		
 			if (!isSuccess) {
 				String address = "/WEB-INF/view/admin/book-form.jsp";
@@ -138,10 +140,20 @@ public class BookController extends HttpServlet {
 		request.getRequestDispatcher(address).forward(request, response);
 	}
 
-	private boolean persist(HttpServletRequest request, HttpServletResponse response, BookDTO bookDTO) {
+	private boolean persist(BookDTO bookDTO) {
 		Book book = BookMapper.toEntity(bookDTO);
-		BookService bookService = new BookService();
-		return bookService.saveBook(book);
+		BookDAO bookDAO = new BookDAO();
+		persistItems(book);
+		return bookDAO.saveBook(book);
+	}
+
+	private void persistItems(Book book) {
+		BookItem bookItem = null;
+		BookItemDAO bookItemDAO = new BookItemDAO();
+		for (int i = 0; i < book.getAmount(); i++) {
+			bookItem = new BookItem(book, false);
+			bookItemDAO.save(bookItem);
+		}
 	}
 
 	private void sendError(HttpServletRequest request, HttpServletResponse response, List<ValidationError> errors) throws ServletException, IOException {

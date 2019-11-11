@@ -17,11 +17,12 @@ public class AdminController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message = new String();
-		if(request.getAttribute("message") != null) {
-			message = (String) request.getAttribute("message");
+		
+		if(request.getParameter("message") != null) {
+			message = (String) request.getParameter("message");
 			request.setAttribute("message", message);
-			System.out.println(message);
 		}
+		
 		BookDAO bookDAO = new BookDAO();;
 		request.setAttribute("books", bookDAO.findAll());
 		String address = "/WEB-INF/view/admin/index.jsp";
